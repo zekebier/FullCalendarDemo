@@ -1,66 +1,139 @@
 <!DOCTYPE html>
+	<!--
+	
+	        ** Credits **************************************************************
+            *                                                                       *
+            *      Bootstrap: http://getbootstrap.com                               *
+            *                                                                       *
+            *      FullCalender: https://fullcalendar.io                            *
+            *                                                                       *
+            *      Parsley: http://parsleyjs.org                                    *
+            *                                                                       *
+            *************************************************************************
+    -->
     
+<html lang="en">
+
 <head>
+	
+	<!-- - - - - - START Stylesheet - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<link href="styles.css" rel="stylesheet"  type="text/css" media="all"charset="UTF-8" />
+	
+	<!-- - - - - - START Javascript files - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<script src="moment.min.js"></script>
+	<script src="jquery.min.js" type="text/javascript" language="javascript"></script>
+	<script src="fullcalendar.js"></script>
+	<script src="gcal.js"></script>
 
-<!-- Stylesheets  - - - - - - -  - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:100,200,300,400" rel="stylesheet" media="screen,projection" />
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="screen,projection" />
-  <link href="root/css/material.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="root/css/styles.css" type="text/css" rel="stylesheet" media="screen,projection" />
-
- 
 </head>
-
 <body>
+	
+	
+<!-- - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+																		START Calendar Form
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->	
+	<div class="padding20">	
+		<div class="center-div"  id="in-classTraingSignUp">
+			<div class="trainingLevelBoxHeader" id="signUpHeader">
+				<h2>Sign Up</h2>
+			</div>
+			<div class="courseSignUpDiv">
+				<form name="in-classTraining" data-parsley-validate>
+					<fieldset style="margin-top: 80px;">
+					<legend class="scheduler-border" style="text-align: left;">Course Dates</legend>
+						<div>
+							<div id='calendar'></div>
+						</div>
+							<div style="margin-top: 20px;">
+								<p style="text-align: left"><b>Select a training date from the calendar<em style="color: red;">*</em></b></p>
+								<div class="form-group" style="text-align: left;">
+									<div class="fieldPadding" style="margin-bottom: 20px;">
+										<input type="text" class="form-control" name="Date" placeholder="Click on a date from the calander" required>
+									</div>		
+								</div>
+							</div>	
+					</fieldset>
+					<button type="submit" class="btn btn-success" style="margin-top: 20px; width: 100%; font-size: 1.5em;">Submit</button><br />
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+																		END Calendar Form
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->	
+               
 
+<!-- - - - - - - - - - - - - - - - - - - -   START Java - - - - - - - - - - - - - - - - - - - - - - - - --> 
+<script src="parsley.min.js" type="text/javascript" language="javascript"></script>
 
-<!-- - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -
-                                          START Company Logos
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->    
-    <!-- START Company Logo Main Title grid - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <div class="mdl-grid">
-        <div class="mdl-cell--stretch" style="margin: 0px auto;">
-            <h1 class="companyLogoText">Designing for the world's smartest companies</h1>
-        </div>
-    </div>
-    <!-- START Company Logo First Row Desktop - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-     <div class="mdl-grid  mdl-cell--hide-phone mdl-cell--hide-tablet companyLogoRowTopDesktop">
-        <div style="margin: 0 auto; display: table;">
-            <div class="mdl-cell--3-col companyLogosDesktopImages"><img style="width: 100%; opacity: .7;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/OnXlt_gray.png" alt="On-X"/></div>
-            <div class="mdl-cell--3-col companyLogosDesktopImages"><img style="width: 100%; opacity: .6;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/displayStar_gray.png" alt="DisplayStar"/></div>
-            <div class="mdl-cell--3-col companyLogosDesktopImages"><img style="width: 100%; opacity: .7;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/hillerAircraft_gray.png" alt="Hiller Aircraft"/></div>
-            <div class="mdl-cell--3-col companyLogosDesktopImages"><img style="width: 100%; opacity: .7;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/fountianHead_gray.png" alt="Fountianheah Press"/></div>
-        </div>
-     </div>
-     <!-- START Company Logo Second Row Desktop - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-     <div class="mdl-grid  mdl-cell--hide-phone mdl-cell--hide-tablet companyLogoRowBottomDesktop">
-        <div style="margin: 0 auto; display: table;">
-            <div class="mdl-cell--3-col companyLogosDesktopImages"><img style="width: 100%; opacity: .7;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/MUM-Logo_gray.png" alt="MUM"/></div>
-            <div class="mdl-cell--3-col companyLogosDesktopImages"><img style="width: 100%; opacity: .9;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/NPSOT_Logo_gray2.png" alt="NPSOT"/></div>
-            <div class="mdl-cell--3-col companyLogosDesktopImages"><img style="width: 100%; opacity: .6;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/autosprink_gray3.png" alt="AutoSPRINK"/></div>
-            <div class="mdl-cell--3-col companyLogosDesktopImages"><img style="width: 100%; opacity: .8;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/Microbiota_gray.png" alt="Microbiota"/></div>
-        </div>
-     </div>
-     <!-- START Company Logo First Row Tablet Phone - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-     <div class="mdl-grid  mdl-cell--hide-desktop companyLogoRowTopTablet">
-        <div style="margin: 0 auto; display: table;">
-            <div class="mdl-cell--3-col companyLogosTabletImages"><img style="width: 100%; opacity: .6;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/OnXlt_gray.png" alt="On-X"/></div>
-            <div class="mdl-cell--3-col companyLogosTabletImages"><img style="width: 100%; opacity: .5;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/displayStar_gray.png" alt="DisplayStar"/></div>
-            <div class="mdl-cell--3-col companyLogosTabletImages"><img style="width: 100%; opacity: .7;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/hillerAircraft_gray.png" alt="Hiller Aircraft"/></div>
-        </div>
-     </div>
-     <!-- START Company Logo Second Row Tablet Phone - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-     <div class="mdl-grid  mdl-cell--hide-desktop companyLogoRowBottomTablet">
-        <div style="margin: 0 auto; display: table;">
-            <div class="mdl-cell--3-col companyLogosTabletImages"><img style="width: 100%; opacity: .6;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/fountianHead_gray.png" alt="Fountianheah Press"/></div>
-            <div class="mdl-cell--3-col companyLogosTabletImages"><img style="width: 100%; opacity: .5;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/autosprink_gray3.png" alt="AutoSPRINK"/></div>
-            <div class="mdl-cell--3-col companyLogosTabletImages"><img style="width: 100%; opacity: .8;" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="root/images/companyLogos/Microbiota_gray.png" alt="Microbiota"/></div>
-        </div>
-     </div>
-<!-- - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - -
-                                          END Company Logos
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - --> 
+<!-- - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+																		START FullCalander Google Calendar
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->	
+<script type='text/javascript'>
+$(document).ready(function() {
+	$('#calendar').fullCalendar({
+		height: 'auto',
+        googleCalendarApiKey: 'AIzaSyBtadcIOihtMDOT2tOfKgrKCDFdHLohjqE', //*API KEY
+        eventSources: [
+            {
+                googleCalendarId: 'mepcad.calendar@gmail.com', //*Online Basic Training Calendar ID
+				color: '#d9eef8',
+				textColor: '#32728f',
+				borderColor: '#bde6ef',
+            },
+			
+			{
+				googleCalendarId: 'hi68fkufjo23v4lolao0uafpug@group.calendar.google.com', //*Canceled and Full Calendar ID
+				color: '#f4dfdf',
+				textColor: '#ab4662',
+				borderColor: '#edced3',
+			}
+        ],
+				eventClick: function(event) {
+			$('input[name="Date"]').val(''+moment(event.start).format('MMM D')+'-'+moment(event.end).format('D, YYYY')+' - '+event.title);
+		},
+		
+		eventClick: function(event) { 
+			if(event.title.indexOf("Full") < 0 && event.title.indexOf("Canceled") < 0) {  
+			// this means the word "Canceled" does not contain in the string so clickable; otherwise, not clickable 
+			$('input[name="Date"]').val(''+moment(event.start).format('MMM D')+'-'+moment(event.end).format('D, YYYY')+' - '+event.title);
+				} 
+		},
+		
+		
+		eventMouseover: function(calEvent, jsEvent, view) {
+                                savBg = $(this).css("background-color");
+                                savClr = $(this).css("color");
+                                $(this).css( { color:'#fff', backgroundColor:"#0081c2" } );
+								
+        },
+		
+		eventMouseover: function(calEvent, jsEvent, view) {
+						if(calEvent.title.indexOf("Full") < 0 && calEvent.title.indexOf("Canceled") < 0) { 
+						// this means the word "Canceled" does not contain in the string so selectable; otherwise, not selectable
+						savBg = $(this).css("background-color"); 
+						savClr = $(this).css("color"); 
+						$(this).css( { color:'#fff', backgroundColor:"#0081c2" } );  
+					}
+		},
+		
 
+		eventMouseout: function(calEvent, jsEvent, view) {
+                                $(this).css( { color:savClr, backgroundColor:savBg } );
+        },
+		
+		eventMouseout: function(calEvent, jsEvent, view) {
+							if(calEvent.title.indexOf("Full") < 0 && calEvent.title.indexOf("Canceled") < 0) {
+                                $(this).css( { color:savClr, backgroundColor:savBg } );
+							}
+        },
+    });
+});
+</script>
+<!-- - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+																		END FullCalander Google Calendar
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 </body>
 </html>
+
