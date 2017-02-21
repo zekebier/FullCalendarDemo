@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<!--
 	
-	        ** Credits **************************************************************
+	    ** Credits **************************************************************
             *                                                                       *
             *      Bootstrap: http://getbootstrap.com                               *
             *                                                                       *
@@ -30,36 +30,36 @@
 	
 	
 <!-- - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-																		START Calendar Form
+							START Calendar Form
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->	
 	<div class="padding20">	
-		<div class="center-div"  id="in-classTraingSignUp">
-			<div class="trainingLevelBoxHeader" id="signUpHeader">
-				<h2>Sign Up</h2>
+	   <div class="center-div"  id="in-classTraingSignUp">
+	      <div class="trainingLevelBoxHeader" id="signUpHeader">
+	         <h2>Sign Up</h2>
+	      </div>
+	      <div class="courseSignUpDiv">
+	          <form name="in-classTraining" data-parsley-validate>
+		     <fieldset style="margin-top: 80px;">
+		        <legend class="scheduler-border" style="text-align: left;">Course Dates</legend>
+			<div>
+			   <div id='calendar'></div>
 			</div>
-			<div class="courseSignUpDiv">
-				<form name="in-classTraining" data-parsley-validate>
-					<fieldset style="margin-top: 80px;">
-					<legend class="scheduler-border" style="text-align: left;">Course Dates</legend>
-						<div>
-							<div id='calendar'></div>
-						</div>
-							<div style="margin-top: 20px;">
-								<p style="text-align: left"><b>Select a training date from the calendar<em style="color: red;">*</em></b></p>
-								<div class="form-group" style="text-align: left;">
-									<div class="fieldPadding" style="margin-bottom: 20px;">
-										<input type="text" class="form-control" name="Date" placeholder="Click on a date from the calander" required>
-									</div>		
-								</div>
-							</div>	
-					</fieldset>
-					<button type="submit" class="btn btn-success" style="margin-top: 20px; width: 100%; font-size: 1.5em;">Submit</button><br />
-				</form>
-			</div>
+			<div style="margin-top: 20px;">
+			    <p style="text-align: left"><b>Select a training date from the calendar<em style="color: red;">*</em></b></p>
+			    <div class="form-group" style="text-align: left;">
+			       <div class="fieldPadding" style="margin-bottom: 20px;">
+				   <input type="text" class="form-control" name="Date" placeholder="Click on a date from the calander" required>
+				</div>		
+			     </div>
+			 </div>	
+		        </fieldset>
+			<button type="submit" class="btn btn-success" style="margin-top: 20px; width: 100%; font-size: 1.5em;">Submit</button><br />
+		      </form>
 		</div>
-	</div>
+	      </div>
+	   </div>
 <!-- - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-																		END Calendar Form
+							END Calendar Form
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->	
                
 
@@ -67,7 +67,7 @@
 <script src="parsley.min.js" type="text/javascript" language="javascript"></script>
 
 <!-- - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-																		START FullCalander Google Calendar
+						START FullCalander Google Calendar
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->	
 <script type='text/javascript'>
 $(document).ready(function() {
@@ -77,21 +77,21 @@ $(document).ready(function() {
         eventSources: [
             {
                 googleCalendarId: 'mepcad.calendar@gmail.com', //*Online Basic Training Calendar ID
-				color: '#d9eef8',
-				textColor: '#32728f',
-				borderColor: '#bde6ef',
+			color: '#d9eef8',
+			textColor: '#32728f',
+			borderColor: '#bde6ef',
             },
 			
-			{
-				googleCalendarId: 'hi68fkufjo23v4lolao0uafpug@group.calendar.google.com', //*Canceled and Full Calendar ID
-				color: '#f4dfdf',
-				textColor: '#ab4662',
-				borderColor: '#edced3',
-			}
-        ],
-				eventClick: function(event) {
+	    {
+			googleCalendarId: 'hi68fkufjo23v4lolao0uafpug@group.calendar.google.com', //*Canceled and Full Calendar ID
+			color: '#f4dfdf',
+			textColor: '#ab4662',
+			borderColor: '#edced3',
+	    }
+            ],
+		eventClick: function(event) {
 			$('input[name="Date"]').val(''+moment(event.start).format('MMM D')+'-'+moment(event.end).format('D, YYYY')+' - '+event.title);
-		},
+	     },
 		
 		eventClick: function(event) { 
 			if(event.title.indexOf("Full") < 0 && event.title.indexOf("Canceled") < 0) {  
@@ -109,12 +109,12 @@ $(document).ready(function() {
         },
 		
 		eventMouseover: function(calEvent, jsEvent, view) {
-						if(calEvent.title.indexOf("Full") < 0 && calEvent.title.indexOf("Canceled") < 0) { 
-						// this means the word "Canceled" does not contain in the string so selectable; otherwise, not selectable
-						savBg = $(this).css("background-color"); 
-						savClr = $(this).css("color"); 
-						$(this).css( { color:'#fff', backgroundColor:"#0081c2" } );  
-					}
+				if(calEvent.title.indexOf("Full") < 0 && calEvent.title.indexOf("Canceled") < 0) { 
+				// this means the word "Canceled" does not contain in the string so selectable; otherwise, not selectable
+				savBg = $(this).css("background-color"); 
+				savClr = $(this).css("color"); 
+				$(this).css( { color:'#fff', backgroundColor:"#0081c2" } );  
+				}
 		},
 		
 
@@ -123,7 +123,7 @@ $(document).ready(function() {
         },
 		
 		eventMouseout: function(calEvent, jsEvent, view) {
-							if(calEvent.title.indexOf("Full") < 0 && calEvent.title.indexOf("Canceled") < 0) {
+				if(calEvent.title.indexOf("Full") < 0 && calEvent.title.indexOf("Canceled") < 0) {
                                 $(this).css( { color:savClr, backgroundColor:savBg } );
 							}
         },
@@ -131,7 +131,7 @@ $(document).ready(function() {
 });
 </script>
 <!-- - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-																		END FullCalander Google Calendar
+						END FullCalander Google Calendar
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 </body>
